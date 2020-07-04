@@ -14,9 +14,13 @@ export class AdminRolesService {
 
     async getAdminRole(_id: number): Promise<AdminRole[]> {
         return await this.adminRolesRepository.find({
-            select: ["roleName", "roleCode", "roleResource"],
+            select: ["id", "roleName", "roleCode", "master", "roleResource"],
             where: [{ "id": _id }]
         });
+    }
+
+    async createAdminRole (adminRole: AdminRole): Promise<AdminRole> {
+        return await this.adminRolesRepository.save(adminRole)
     }
 
     async updateAdminRole(adminRole: AdminRole) {

@@ -6,8 +6,8 @@ import { AdminRole } from './admin_role.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([AdminRole])],
-  providers: [AdminRolesController],
-  controllers: [AdminRolesService],
+  providers: [AdminRolesService],
+  controllers: [AdminRolesController],
 })
 
 export class AdminRolesModule { }

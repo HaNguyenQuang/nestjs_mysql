@@ -8,15 +8,19 @@ export class AdminsService {
 
     constructor(@InjectRepository(Admin) private adminsRepository: Repository<Admin>) { }
 
-    async getAdmins(admin: Admin): Promise<Admin[]> {
+    async getAdmins(): Promise<Admin[]> {
         return await this.adminsRepository.find();
     }
 
     async getAdmin(_id: number): Promise<Admin[]> {
         return await this.adminsRepository.find({
-            select: ["username", "email", "phone"],
+            select: ["id", "username", "isActive", "email", "external", "apiKey", "phone"],
             where: [{ "id": _id }]
         });
+    }
+
+    async createAdmin (admin: Admin): Promise<Admin> {
+        return await this.adminsRepository.save(admin)
     }
 
     async updateAdmin(admin: Admin) {

@@ -7,15 +7,20 @@ export class AdminsController {
 
     constructor(private service: AdminsService) { }
 
+    @Get()
+    getAll(): Promise<Admin[]> {
+        return this.service.getAdmins();
+    }
+
     @Get(':id')
     get(@Param() params) {
         return this.service.getAdmin(params.id);
     }
 
-    // @Post()
-    // create(@Body() admin: Admin) {
-    //     return this.service.createAdmin(admin);
-    // }
+    @Post()
+    create(@Body() admin: Admin) {
+        return this.service.createAdmin(admin);
+    }
 
     @Put()
     update(@Body() admin: Admin) {

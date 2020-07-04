@@ -16,10 +16,10 @@ export class AdminRolesController {
         return this.service.getAdminRole(params.id);
     }
 
-    // @Post()
-    // create(@Body() adminRoles: AdminRole) {
-    //     return this.service.createAdminRole(adminRoles);
-    // }
+    @Post()
+    create(@Body() adminRoles: AdminRole) {
+        return this.service.createAdminRole(adminRoles);
+    }
 
     @Put()
     update(@Body() adminRoles: AdminRole) {
