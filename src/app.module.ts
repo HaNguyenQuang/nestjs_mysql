@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
+    UsersModule
   ],
   controllers: [AppController],
   providers: [AppService],

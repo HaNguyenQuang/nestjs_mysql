@@ -8,15 +8,20 @@ export class UsersController {
 
     constructor(private service: UsersService) { }
 
+    @Get()
+    getAll(): Promise<User[]> {
+        return this.service.getUsers();
+    }
+
     @Get(':id')
     get(@Param() params) {
         return this.service.getUser(params.id);
     }
 
-    // @Post()
-    // create(@Body() user: User) {
-    //     return this.service.createUser(user);
-    // }
+    @Post()
+    create(@Body() user: User) {
+        return this.service.createUser(user);
+    }
 
     @Put()
     update(@Body() user: User) {
