@@ -31,6 +31,7 @@
     "graphql": "^15.2.0",
     "graphql-tools": "^6.0.12",
     "mysql": "^2.18.1",
+    "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",

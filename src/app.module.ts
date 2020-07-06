@@ -12,7 +12,10 @@ import { GraphQLModule } from '@nestjs/graphql';
   imports: [
     TypeOrmModule.forRoot(),
     GraphQLModule.forRoot({
-      autoSchemaFile: 'schema.gql',
+      typePaths: ['./**/*.graphql'],
+      resolverValidationOptions: {
+        requireResolversForResolveType: false,
+      },
     }),
     UsersModule,
     //CustomersModule,
