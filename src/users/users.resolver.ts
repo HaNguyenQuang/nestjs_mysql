@@ -8,7 +8,7 @@ import { User } from './user.entity';
 export class UsersResolver {
   constructor(private usersService: UsersService) {}
 
-  @Query(returns => [UsersDTO], { nullable: true })
+  @Query(returns => [UsersDTO])
   async getAll(): Promise<UsersDTO[]> {
     return await this.usersService.getUsers();
   }
