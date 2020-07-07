@@ -1,16 +1,15 @@
-import { ObjectType, Field, ID } from 'type-graphql';
+import { ObjectType, Field, ID } from '@nestjs/graphql';
 
 @ObjectType()
 export class UsersDTO {
-  @Field(type => ID)
+  @Field(type => ID, { nullable: true })
   id: number;
 
-  @Field(type => String)
+  @Field(type => String, { nullable: true })
   fullName: string;
 
-  @Field(type => Date)
+  @Field(type => Date, { nullable: true })
   birthday: Date;
 
-  @Field(type => Boolean)
+  @Field(type => Boolean, { nullable: true })
   isActive: boolean;
-}
