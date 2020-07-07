@@ -13,3 +13,4 @@ export class UsersDTO {
 
   @Field(type => Boolean, { nullable: true })
   isActive: boolean;
+}
