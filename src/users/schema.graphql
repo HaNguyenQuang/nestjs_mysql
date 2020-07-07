@@ -1,8 +1,18 @@
 type User {
-    id: Int!
-    fullName: String!
-    isActive: Boolean!
+    fullName: String
+    isActive: Boolean
 }
+
 type Query{
-    users: [User]!
+    users: [User]
+}
+
+type Mutation{
+    create(inputUser: InputUser): User
+    update(id: Int, fullName: String, isActive: Boolean): User
+    delete(id: Int): User
+}
+input InputUser {
+    fullName: String
+    isActive: Boolean
 }
