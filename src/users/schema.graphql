@@ -1,3 +1,4 @@
+scalar Date
 type User {
     fullName: String
     isActive: Boolean
@@ -15,4 +16,5 @@ type Mutation{
 input InputUser {
     fullName: String
     isActive: Boolean
+    birthday: Date
 }

@@ -3,7 +3,15 @@ import { UpdateResult, DeleteResult } from 'typeorm';
 import { UsersDTO } from './users.dto';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
+import { createParamDecorator, ExecutionContext, Body, UseGuards } from '@nestjs/common';
 
+
+type inputUserType = {
+  fullName: string
+  isActive: boolean
+  birthday: Date
+  id: number
+}
 @Resolver('Users')
 export class UsersResolver {
   constructor(private usersService: UsersService) {}
@@ -14,9 +22,12 @@ export class UsersResolver {
   }
 
   @Mutation('create')
-  async create(@Args ('inputUser') inputUser: User): Promise<User> {
-    console.log('inputUser', inputUser);
-    return this.usersService.createUser(inputUser);
+  async create(@Args('inputUser') inputUser: User): Promise<User> {
+    const user = new User();
+    user.birthday = inputUser.birthday;
+    user.fullName = inputUser.fullName;
+    user.isActive = inputUser.isActive;
+    return this.usersService.createUser(user);
   }
 
   @Mutation('update')
