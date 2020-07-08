@@ -20,6 +20,7 @@ export class UsersService {
     }
 
     async createUser (user: User): Promise<User> {
+        console.log('user', user);
         return await this.usersRepository.save(user)
     }
 
